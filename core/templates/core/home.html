@@ -1,0 +1,78 @@
+
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+</style>
+</head>
+<body>
+<footer>
+  <h1>Your Information</h1>
+</footer>
+
+
+<form method="POST" action="/">
+  {% csrf_token %}
+  {{form.title}}
+  <input class="btn btn-info" type="submit" name="Create Task">
+</form>
+
+<table>
+  <tr>
+    <td>Recipe Name</td>
+    <td><strong>{{ recipe }}</strong></td>
+  </tr>
+  <tr>
+    <td>Calories</td>
+    <td><strong>{{ recipe.calories }}</strong></td>
+  </tr>
+    <tr>
+    <td>Cautions</td>
+    <td><strong>{{ recipe.cautions }}</strong></td>
+  </tr>
+  <tr>
+    <td>DietLabels</td>
+    <td><strong>{{ recipe.dietLabels }}</strong></td>
+  </tr>
+    <tr>
+    <td>HealthLabels</td>
+    <td><strong>{{ recipe.healthLabels }}</strong></td>
+  </tr>
+  <tr>
+    <td>Receipe url</td>
+    <td><strong>{{ recipe.url }}</strong></td>
+  </tr>
+    <tr>
+    <td>Ingredients</td>
+    <td><strong>{{ recipe.ingredient_quantities }}</strong></td>
+  </tr>
+  
+</table>
+
+<footer>
+  <p>We do not store any information. Feel free to use to see your virtual information.</p>
+</footer>
+
+</body>
+</html>
